@@ -10,7 +10,7 @@ Piece.prototype.fill = function(color){
 }
 
 //draw tetris shape in the area
-Piece.prototype.draw = function(){
+Piece.prototype.draw = function(color){
   this.fill(this.color);
 }
 
@@ -23,7 +23,8 @@ Piece.prototype.undraw = function(){
 //move down function and speed check
 let dropStart = Date.now();
 let isGameOver = false;
-let speed = 1500;
+let ultimateSpeed = 1500;
+let speed = ultimateSpeed;
 function drop(){
   let current = Date.now();
   let diff = current - dropStart;
@@ -45,6 +46,7 @@ Piece.prototype.moveDown = function(){
     //lock current piece and generate new one
     this.lock();
     p = getCurrentPiece();
+    p.ghost();
   }
 }
 
@@ -122,7 +124,7 @@ Piece.prototype.lock = function(){
     board[this.y + r][this.x + c] = this.color; 
     }
   }
-  speed = 1500;
+  speed = ultimateSpeed;
   removeLine();
   drawBoard();
 }
@@ -131,17 +133,19 @@ Piece.prototype.lock = function(){
 Piece.prototype.hardDrop = function(){
   speed = 0;
   drop();
+  score += 20;
 }
 
 //function to draw ghost pieces
-// function ghost(){
-//   for(let r = 0; r < ROW; r++){
-//     for(let c = 0; c < COL; c++){
-//       if(this.collision(r, c, this.currentShape)){
-//         this.x = r;
-//         this.y = c;
-//         this.draw();
-//       }
-//     }
-//   }
-// }
+Piece.prototype.ghost = function(){
+  console.log("ghost");
+  for(let r = 0; r < ROW; r++){
+    for(let c = 0; c < COL; c++){
+      if(this.collision(r, c, this.currentShape)){
+        this.x = r;
+        this.y = c;
+        this.draw();
+      }
+    }
+  }
+}

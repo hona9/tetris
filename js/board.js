@@ -54,7 +54,6 @@ function getCurrentPiece(){
 
 //instantiating a piece
 let p = getCurrentPiece();
-console.log(p);
 
 function Piece(shape, color){
   this.shape = shape;
@@ -93,8 +92,15 @@ function drawNextSquare(x, y, color){
   ctxNext.strokeRect(x*SQ, y*SQ, SQ, SQ);
 }
 
-function drawNextThreePiece(){
-  console.log(threePieces[0])
+// function drawNextThreePiece(){
+//   for(let r = 0; r < this.currentShape.length; r++){
+//     for(let c = 0; c < this.currentShape.length; c++){
+//       if(this.currentShape[r][c]){
+//         drawNextSquare(this.x + c, this.y + r, color);
+//       }
+//     }
+//   }
+//   console.log(threePieces[0])
   
-}
-drawNextThreePiece();
+// }
+// drawNextThreePiece();

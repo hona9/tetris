@@ -18,6 +18,5 @@ const POINTS = {
   SINGLE: 100,
   DOUBLE: 300,
   TRIPLE: 500,
-  TETRIS: 800,
-  HARD_DROP: 2
+  TETRIS: 800
 }

@@ -21,9 +21,14 @@ function CONTROL(e){
 }
 
 let countLines = document.querySelector('.lines');
+let scoreCount = document.querySelector('.score');
+let levelCount = document.querySelector('.level');
 //function to remove line
-let lines = 0;
+let universalLines = 0;
+let score = 0;
+let level = 1;
 function removeLine(){
+  let lines = 0;
   for(r = 0; r < ROW; r++){
     let isRowFull = true;
     for(c = 0; c < COL; c++){
@@ -41,5 +46,25 @@ function removeLine(){
       }
     }
   }
-  countLines.innerHTML = `Lines: ${lines}`
+  getLineClearPoints(lines);
+  universalLines += lines;
+  // changeSpeed();
+  countLines.innerHTML = `Lines: ${universalLines}`
+  scoreCount.innerHTML = `Score: ${score}`
+  levelCount.innerHTML = `Level: ${level}`
+}
+
+function getLineClearPoints(lines){  
+  const lineClearPoints =
+    lines === 1
+      ? POINTS.SINGLE
+      : lines === 2
+      ? POINTS.DOUBLE
+      : lines === 3
+      ? POINTS.TRIPLE
+      : lines === 4
+      ? POINTS.TETRIS
+      : 0;
+  score += lineClearPoints;
+  return score;
 }
