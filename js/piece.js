@@ -34,7 +34,7 @@ Piece.prototype.undraw = function(){
     }
     if(!isGameOver)  requestAnimationFrame(drop);
   }
-  drop();
+  // drop();
 // }
 
 //move down

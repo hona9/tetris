@@ -20,11 +20,13 @@ function CONTROL(e){
 let countLines = document.querySelector('.lines');
 let scoreCount = document.querySelector('.score');
 let levelCount = document.querySelector('.level');
+let highScoreCount = document.querySelector('.highScore');
 
 let linesClearedCount = 0;
 let score = 0;
 let increaseLevelAfter = 10; //increase level after 10 line clearance
 let level = 0;
+let highScore = 0;
 
 //function to remove line
 function removeLine(){
@@ -50,9 +52,9 @@ function removeLine(){
   linesClearedCount += lines;
   level = Math.floor(linesClearedCount/increaseLevelAfter);
   
-  countLines.innerHTML = `Lines: ${linesClearedCount}`
-  scoreCount.innerHTML = `Score: ${score}`
-  levelCount.innerHTML = `Level: ${level}`
+  countLines.innerHTML = linesClearedCount;
+  scoreCount.innerHTML = score;
+  levelCount.innerHTML = level;
 }
 
 function getLineClearPoints(lines){  

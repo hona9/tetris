@@ -9,22 +9,29 @@
 </head>
 <body>
   <div class="container">
-    <div class="hold-container">
-      <canvas id="hold" width="200" height="200"></canvas>
-      <div class="extra">
-        <div class="score">Score: 0</div>
-        <div class="lines">Lines: 0</div>
-        <div class="level">Level: 0</div>
+    <div class="left-container">
+      <div class="hold-container container-background">
+        <div class="title">Hold</div>
+        <canvas id="hold" width="180" height="180"></canvas>
+      </div>
+      <div class="extra container-background">
+        <div class="title">Score <br><div class="score">0</div></div>
+        <div class="title">Lines <br><div class="lines">0</div></div>
+        <div class="title">Level <br><div class="level">0</div></div>
+        <div class="title">High Score <br><div class="highScore">0</div></div>
       </div>
     </div>
-    <div class="main">
+    <div class="main container-background">
       <canvas id="game" width="300" height="600"></canvas>
     </div>
-    <div class="next-container">
-      <canvas id="next" width="200" height="400"></canvas>
-      <div class="menu">
-        <button id="play">Play</button>
-        <button id="option">options</button>
+    <div class="right-container">
+      <div class="next-container container-background">
+        <div class="title">Next</div>
+        <canvas id="next" width="180" height="300"></canvas>
+      </div>
+      <div class="menu container-background">
+        <button id="play" class="buttons">Play</button>
+        <button id="option" class="buttons">options</button>
       </div>
     </div>
     <div class="controls">

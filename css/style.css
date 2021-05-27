@@ -4,20 +4,80 @@
   box-sizing: border-box;
 }
 
-canvas{
-  background: aliceblue;
+html{
+  font-size: 62.5%;
+  font-family: sans-serif;
 }
 
 .container{
-  margin-top: 50px;
+  margin-top: 3rem;
   display: flex;
   justify-content: center;
+  padding: 2rem;
 }
 
 .hold-container{
-  margin-right: 20px;
+  margin-top: 3rem;
+  margin-right: 3rem;
 }
 
 .next-container{
-  margin-left: 20px;
+  margin-top: 3rem;
+  margin-left: 3rem;
+}
+
+.container-background{
+  background-color: darkgray;
+  padding: 2rem;
+  border-radius: 2rem;
+}
+
+.title{
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: .8rem;
+}
+
+.title div{
+  background-color: black;
+  width: 100%;
+  border-radius: 2rem;
+  margin-top: .2rem;
+}
+
+.extra{
+  margin-right: 3rem;
+  margin-top: 5rem;
+}
+
+.menu{
+  margin-top: 5rem;
+  margin-left: 3rem;
+  max-width: 22rem;
+  height: 7rem;
+}
+
+.buttons{
+  border: 0;
+  padding: .8rem 2rem;
+  text-transform: uppercase;
+  border-radius: 2rem;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.buttons:hover{
+  border: 1px solid white;
+}
+
+#play{
+  background-color: rgb(68, 206, 64);
+}
+
+#option{
+  background-color: rgb(65, 130, 173);
 }

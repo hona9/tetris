@@ -1,7 +1,7 @@
 const ROW = 20;
 const COL = 10;
 const SQ = 30; //squarebox size
-const EMPTYSQ = "#413838"; //each empty boxes
+const EMPTYSQ = "black"; //each empty boxes
 
 //shapes
 const SHAPES = [
