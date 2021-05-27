@@ -1,6 +1,3 @@
-const canvasHold = document.querySelector('#hold');
-const ctxHold = canvasHold.getContext('2d');
-
 //control keys
 document.addEventListener('keydown', CONTROL);
 
@@ -16,17 +13,20 @@ function CONTROL(e){
   }else if(e.keyCode == 32){
     p.hardDrop();
   }else if(e.keyCode == 67){
-    p.hold();
+    holdOnePiece();
   }
 }
 
 let countLines = document.querySelector('.lines');
 let scoreCount = document.querySelector('.score');
 let levelCount = document.querySelector('.level');
-//function to remove line
-let universalLines = 0;
+
+let linesClearedCount = 0;
 let score = 0;
-let level = 1;
+let increaseLevelAfter = 10; //increase level after 10 line clearance
+let level = 0;
+
+//function to remove line
 function removeLine(){
   let lines = 0;
   for(r = 0; r < ROW; r++){
@@ -47,9 +47,10 @@ function removeLine(){
     }
   }
   getLineClearPoints(lines);
-  universalLines += lines;
-  // changeSpeed();
-  countLines.innerHTML = `Lines: ${universalLines}`
+  linesClearedCount += lines;
+  level = Math.floor(linesClearedCount/increaseLevelAfter);
+  
+  countLines.innerHTML = `Lines: ${linesClearedCount}`
   scoreCount.innerHTML = `Score: ${score}`
   levelCount.innerHTML = `Level: ${level}`
 }
@@ -68,3 +69,12 @@ function getLineClearPoints(lines){
   score += lineClearPoints;
   return score;
 }
+
+//change speed and level
+function getSpeed(){
+  if(level <= 12){
+    formulae = 1500 - (100 * (level+1));
+    return formulae;
+  }
+}
+

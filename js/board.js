@@ -1,7 +1,5 @@
 const canvas = document.querySelector('#game');
 const ctx = canvas.getContext('2d');
-const canvasNext = document.querySelector('#next');
-const ctxNext = canvasNext.getContext('2d');
 
 //create game area
 let board = [];
@@ -41,9 +39,33 @@ function nextThreePiece(){
   for(let i = 0; i < 3; i++){
     threePieces.push(randomPiece());
   }
-  console.log(threePieces);
 }
 nextThreePiece();
+
+//hold a piece
+let holdPiece = [];
+function holdOnePiece(){
+  if(holdPiece.length === 0){
+    p.undraw();
+    holdPiece = p;
+    p = getCurrentPiece();
+    p.x = 3;
+    p.y = -1;
+    p.draw();
+  }else{
+    p.undraw();
+    let temp = p;
+    p = holdPiece;
+    holdPiece = temp;
+    p.x = 3;
+    p.y = -1;
+    p.draw();
+  }
+  console.log(p);
+  ctxHold.clearRect(0, 0, canvas.width, canvas.height);
+  drawHoldBoard();
+  drawHoldPiece();
+}
 
 //get current piece from next pieces or hold state
 function getCurrentPiece(){
@@ -63,44 +85,5 @@ function Piece(shape, color){
   this.currentShape = this.shape[this.shapeNum];
 
   this.x = 3;
-  this.y = 3;
+  this.y = -1;
 }
-
-//create next pieces area
-let nextboard = [];
-for(let r = 0; r < 10; r++){
-  nextboard[r] = [];
-  for(let c = 0; c < 5; c++){
-    nextboard[r][c] = EMPTYSQ;
-  }
-}
-
-function drawNextBoard(){
-  for(let r = 0; r < 10; r++){
-    for(let c = 0; c< 5; c++){
-      drawNextSquare(c, r, nextboard[r][c]);
-    }
-  }
-}
-drawNextBoard();
-
-//draw square
-function drawNextSquare(x, y, color){
-  ctxNext.fillStyle = color;
-  ctxNext.fillRect(x*SQ, y*SQ, SQ, SQ);
-  ctxNext.strokeStyle = "#979797";
-  ctxNext.strokeRect(x*SQ, y*SQ, SQ, SQ);
-}
-
-// function drawNextThreePiece(){
-//   for(let r = 0; r < this.currentShape.length; r++){
-//     for(let c = 0; c < this.currentShape.length; c++){
-//       if(this.currentShape[r][c]){
-//         drawNextSquare(this.x + c, this.y + r, color);
-//       }
-//     }
-//   }
-//   console.log(threePieces[0])
-  
-// }
-// drawNextThreePiece();

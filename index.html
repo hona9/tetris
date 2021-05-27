@@ -14,7 +14,7 @@
       <div class="extra">
         <div class="score">Score: 0</div>
         <div class="lines">Lines: 0</div>
-        <div class="level">Level: 1</div>
+        <div class="level">Level: 0</div>
       </div>
     </div>
     <div class="main">
@@ -22,12 +22,48 @@
     </div>
     <div class="next-container">
       <canvas id="next" width="200" height="400"></canvas>
+      <div class="menu">
+        <button id="play">Play</button>
+        <button id="option">options</button>
+      </div>
+    </div>
+    <div class="controls">
+      <h1>Options</h1>
+      <table>
+        <tr>
+          <td>Move left</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Move right</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Rotate piece</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Soft drop</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Hard drop</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Hold</td>
+          <td></td>
+        </tr>
+      </table>
     </div>
   </div>
   <script src="./js/shapes.js"></script>
   <script src="./js/constants.js"></script>
   <script src="./js/board.js"></script>
-  <script src="./js/main.js"></script>
+  <script src="./js/nextSection.js"></script>
+  <script src="./js/holdSection.js"></script>
+  <script src="./js/working.js"></script>
+  <script src="./js/app.js"></script>
   <script src="./js/piece.js"></script>
 </body>
 </html>

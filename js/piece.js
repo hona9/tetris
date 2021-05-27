@@ -20,21 +20,22 @@ Piece.prototype.undraw = function(){
 }
 
 
-//move down function and speed check
-let dropStart = Date.now();
-let isGameOver = false;
-let ultimateSpeed = 1500;
-let speed = ultimateSpeed;
-function drop(){
-  let current = Date.now();
-  let diff = current - dropStart;
-  if(diff > speed){
-    p.moveDown();
-    dropStart = Date.now();
+// if(gameState === 1){ //state1 is gameOn state
+  //move down function  
+  let dropStart = Date.now();
+  let isGameOver = false;
+  let speed = getSpeed();
+  function drop(){
+    let current = Date.now();
+    let diff = current - dropStart;
+    if(diff > speed){
+      p.moveDown();
+      dropStart = Date.now();
+    }
+    if(!isGameOver)  requestAnimationFrame(drop);
   }
-  if(!isGameOver)  requestAnimationFrame(drop);
-}
-drop();
+  drop();
+// }
 
 //move down
 Piece.prototype.moveDown = function(){
@@ -46,7 +47,10 @@ Piece.prototype.moveDown = function(){
     //lock current piece and generate new one
     this.lock();
     p = getCurrentPiece();
-    p.ghost();
+    // p.ghost();
+    ctxNext.clearRect(0, 0, canvas.width, canvas.height);
+    drawNextBoard();
+    drawNextThreePiece();
   }
 }
 
@@ -118,13 +122,15 @@ Piece.prototype.lock = function(){
 
       if(this.y + r < 0){
         alert('Game Over');
+        isGameOn = false;
         isGameOver = true;
         break;
       }
-    board[this.y + r][this.x + c] = this.color; 
+    board[this.y + r][this.x + c] = this.color;
     }
   }
-  speed = ultimateSpeed;
+
+  speed = getSpeed();
   removeLine();
   drawBoard();
 }
