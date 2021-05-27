@@ -44,6 +44,7 @@ nextThreePiece();
 
 //hold a piece
 let holdPiece = [];
+let hasBeenHoldOnce = true; // flag to check if certain piece has been hold 
 function holdOnePiece(){
   if(holdPiece.length === 0){
     p.undraw();
@@ -51,6 +52,7 @@ function holdOnePiece(){
     p = getCurrentPiece();
     p.x = 3;
     p.y = -1;
+    hasBeenHoldOnce = true;
     p.draw();
   }else{
     p.undraw();
@@ -59,6 +61,7 @@ function holdOnePiece(){
     holdPiece = temp;
     p.x = 3;
     p.y = -1;
+    hasBeenHoldOnce = true;
     p.draw();
   }
   console.log(p);
@@ -71,6 +74,7 @@ function holdOnePiece(){
 function getCurrentPiece(){
   let currentPiece = threePieces.shift();
   threePieces.push(randomPiece());
+  hasBeenHoldOnce = false;
   return currentPiece;
 }
 

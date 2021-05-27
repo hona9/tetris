@@ -13,7 +13,7 @@ function CONTROL(e){
   }else if(e.keyCode == 32){
     p.hardDrop();
   }else if(e.keyCode == 67){
-    holdOnePiece();
+    if(!hasBeenHoldOnce) holdOnePiece();
   }
 }
 
