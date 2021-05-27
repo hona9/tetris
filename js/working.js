@@ -56,6 +56,7 @@ function removeLine(){
   scoreCount.innerHTML = score;
   levelCount.innerHTML = level;
 }
+highScoreCount.innerHTML = localStorage.getItem("HighScore");
 
 function getLineClearPoints(lines){  
   const lineClearPoints =
@@ -77,6 +78,14 @@ function getSpeed(){
   if(level <= 12){
     formulae = 1500 - (100 * (level+1));
     return formulae;
+  }
+}
+
+//high score
+function getHighScore(){
+  if(score > highScore){
+    highScore = score;
+    localStorage.setItem("HighScore", highScore);
   }
 }
 

@@ -34,7 +34,7 @@ Piece.prototype.undraw = function(){
     }
     if(!isGameOver)  requestAnimationFrame(drop);
   }
-  // drop();
+  drop();
 // }
 
 //move down
@@ -129,7 +129,7 @@ Piece.prototype.lock = function(){
     board[this.y + r][this.x + c] = this.color;
     }
   }
-
+  getHighScore();
   speed = getSpeed();
   removeLine();
   drawBoard();
