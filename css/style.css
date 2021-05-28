@@ -1,4 +1,6 @@
-*{
+*, 
+*:before,
+*:after{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -80,4 +82,74 @@ html{
 
 #option{
   background-color: rgb(65, 130, 173);
+}
+
+.controls, .desired-section{
+  background-color: #414141;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+  border: .5rem solid white;
+  border-radius: 2rem;
+  padding: 1rem 2rem;
+  color: white;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+.controls{
+  height: 30rem;
+  width: 40rem;
+  z-index: 5;
+}
+
+.desired-section{
+  width: 25rem;
+  height: 15rem;
+  z-index: 10;
+  text-align: center;
+}
+
+#cancel-button{
+  margin-top: 3rem;
+}
+
+.controls .control-options{
+  display: flex;
+  justify-content: space-between;
+}
+
+.controls.active{
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.desired-section.active{
+  transform: translate(-50%, -50%) scale(1);
+}
+
+#applyChanges{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: gray;
+  cursor: pointer;
+}
+
+#overlay{
+  position: fixed;
+  opacity: 0;
+  transition: 200ms ease-in-out;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .5);
+  pointer-events: none;
+}
+
+#overlay.active{
+  opacity: 1;
+  pointer-events: all;
 }

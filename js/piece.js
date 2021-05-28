@@ -32,7 +32,7 @@ Piece.prototype.undraw = function(){
       p.moveDown();
       dropStart = Date.now();
     }
-    if(!isGameOver)  requestAnimationFrame(drop);
+    if(!isGameOver)  animateDrop = requestAnimationFrame(drop);
   }
   drop();
 // }
@@ -120,7 +120,7 @@ Piece.prototype.lock = function(){
     for(let c = 0; c < this.currentShape.length; c++){
       if(!this.currentShape[r][c]) continue;
 
-      if(this.y + r < 0){
+      if(this.y + r < 1){
         alert('Game Over');
         isGameOn = false;
         isGameOver = true;
@@ -132,8 +132,21 @@ Piece.prototype.lock = function(){
   getHighScore();
   speed = getSpeed();
   removeLine();
+  // comboFeature();
   drawBoard();
 }
+
+//special combo feature to stop the piece falling
+// function comboFeature(){
+  if(combo == 0){
+    p.y = 0;
+    p.draw();
+    window.cancelAnimationFrame(animateDrop);
+    setTimeout(drop(), 4000);
+    console.log('combo feature running');
+  }
+// }
+// comboFeature();
 
 //hard-drop
 Piece.prototype.hardDrop = function(){

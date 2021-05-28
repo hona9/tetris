@@ -64,7 +64,6 @@ function holdOnePiece(){
     hasBeenHoldOnce = true;
     p.draw();
   }
-  console.log(p);
   ctxHold.clearRect(0, 0, canvas.width, canvas.height);
   drawHoldBoard();
   drawHoldPiece();

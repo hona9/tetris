@@ -35,35 +35,48 @@
       </div>
     </div>
     <div class="controls">
-      <h1>Options</h1>
-      <table>
-        <tr>
-          <td>Move left</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Move right</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Rotate piece</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Soft drop</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Hard drop</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Hold</td>
-          <td></td>
-        </tr>
-      </table>
+        <div class="title">Options</div>
+        <div class="control-options">
+          <div>Move left</div>
+          <button id="move-left"></button>
+        </div>
+        <div class="control-options">
+          <div>Move right</div>
+          <button id="move-right"></button>
+        </div>
+        <div class="control-options">
+          <div>Rotate piece</div>
+          <button id="rotate"></button>
+        </div>
+        <div class="control-options">
+          <div>Soft drop</div>
+          <button id="soft-drop"></button>
+        </div>
+        <div class="control-options">
+          <div>Hard drop</div>
+          <button id="hard-drop"></button>
+        </div>
+        <div class="control-options">
+          <div>Hold</div>
+          <button id="hold"></button>
+        </div>
+        <div class="control-options">
+          <div>Level</div>
+          <div><input type="number" id="level-length" min='0' max='10'></div>
+        </div>
+      <button id="applyChanges" class="buttons">Done</button>
+    </div>
+    <div class="desired-section">
+      <div>press the desired button</div>
+      <button id="cancel-button" class="buttons">Cancel</button>
+    </div>
+    <div class="scoreBoard">
+      <div>You have scored</div>
+      <div class="score"></div>
+      <div class="newHighScore">New High Score</div>
     </div>
   </div>
+  <div id="overlay"></div>
   <script src="./js/shapes.js"></script>
   <script src="./js/constants.js"></script>
   <script src="./js/board.js"></script>
@@ -72,5 +85,6 @@
   <script src="./js/working.js"></script>
   <script src="./js/app.js"></script>
   <script src="./js/piece.js"></script>
+  <script src="./js/options.js"></script>
 </body>
 </html>

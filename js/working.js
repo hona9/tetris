@@ -21,12 +21,20 @@ let countLines = document.querySelector('.lines');
 let scoreCount = document.querySelector('.score');
 let levelCount = document.querySelector('.level');
 let highScoreCount = document.querySelector('.highScore');
+let comboCount;
 
 let linesClearedCount = 0;
 let score = 0;
 let increaseLevelAfter = 10; //increase level after 10 line clearance
-let level = 0;
 let highScore = 0;
+let level = 0;
+let combo = 0;
+//check if user input level
+// if(!levelValue){
+//   level = 0;
+// }else{
+//   level = getLevel();
+// }
 
 //function to remove line
 function removeLine(){
@@ -49,6 +57,7 @@ function removeLine(){
     }
   }
   getLineClearPoints(lines);
+  getComboCount(lines);
   linesClearedCount += lines;
   level = Math.floor(linesClearedCount/increaseLevelAfter);
   
@@ -87,5 +96,15 @@ function getHighScore(){
     highScore = score;
     localStorage.setItem("HighScore", highScore);
   }
+}
+
+//combo count
+function getComboCount(lines){
+  if(lines > 0){
+    combo++
+  }else{
+    combo = 0;
+  }
+  console.log(combo);
 }
 
