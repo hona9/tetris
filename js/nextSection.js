@@ -3,7 +3,7 @@ const ctxNext = canvasNext.getContext('2d');
 
 //create next pieces area
 let nextboard = [];
-for(let r = 0; r < 10; r++){
+for(let r = 0; r < 12; r++){
   nextboard[r] = [];
   for(let c = 0; c < 6; c++){
     nextboard[r][c] = EMPTYSQ;
@@ -11,7 +11,7 @@ for(let r = 0; r < 10; r++){
 }
 
 function drawNextBoard(){
-  for(let r = 0; r < 10; r++){
+  for(let r = 0; r < 12; r++){
     for(let c = 0; c< 6; c++){
       drawNextSquare(c, r, nextboard[r][c]);
     }
@@ -33,7 +33,7 @@ function drawNextThreePiece(){
     for(let r = 0; r < threePieces[i].currentShape.length; r++){
       for(let c = 0; c < threePieces[i].currentShape.length; c++){
         if(threePieces[i].currentShape[r][c]){
-          drawNextSquare(1 + c, i*3 + r, threePieces[i].color);
+          drawNextSquare(1 + c, i*4 + r, threePieces[i].color);
         }
       }
     }
