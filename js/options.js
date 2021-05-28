@@ -39,13 +39,13 @@ const showNewHighScore = document.querySelector('#newHighScore');
 //gameover function
 function gameOver(){
   showScore.innerHTML = score;
-  if(newHighScore === true){
-    showNewHighScore.classList.remove('inactive');
-    showNewHighScore.classList.add('active');
-  }else{
-    showNewHighScore.classList.remove('active');
-    showNewHighScore.classList.add('inactive');
-  }
+  // if(newHighScore === true){
+  //   showNewHighScore.classList.remove('inactive');
+  //   showNewHighScore.classList.add('active');
+  // }else{
+  //   showNewHighScore.classList.remove('active');
+  //   showNewHighScore.classList.add('inactive');
+  // }
   showScoreBoard.classList.add('active');
   overlay.classList.add('active');
 }
