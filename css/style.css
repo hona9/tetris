@@ -84,7 +84,7 @@ html{
   background-color: rgb(65, 130, 173);
 }
 
-.controls, .desired-section{
+.controls, .desired-section, .scoreBoard{
   background-color: #414141;
   position: fixed;
   top: 50%;
@@ -152,4 +152,27 @@ html{
 #overlay.active{
   opacity: 1;
   pointer-events: all;
+}
+
+.scoreBoard{
+  z-index: 10;
+  text-align: center;
+}
+
+.scoreBoard.active{
+  transform: translate(-50%, -50%) scale(1);
+}
+
+#newHighScore{
+  color: aquamarine;
+  display: none;
+}
+
+#newHighScore.active{
+  display: block;
+}
+
+.gameOverscore{
+  font-size: 8rem;
+  color: bisque;
 }

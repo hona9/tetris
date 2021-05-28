@@ -31,7 +31,20 @@ function closeControlOptions(){
 //   return levelValue;
 // }
 
-
+const showScoreBoard = document.querySelector('.scoreBoard');
+const showScore = document.querySelector('.gameOverscore');
+const showNewHighScore = document.querySelector('#newHighScore');
+//gameover function
+function gameOver(){
+  showScore.innerHTML = score;
+  if(newHighScore){
+    showNewHighScore.classList.add('active');
+  }else{
+    showNewHighScore.classList.remove('active');
+  }
+  showScoreBoard.classList.add('active');
+  overlay.classList.add('active');
+}
 
 //for customizing keys
 

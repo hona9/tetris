@@ -91,8 +91,10 @@ function getSpeed(){
 }
 
 //high score
+let newHighScore = false;
 function getHighScore(){
   if(score > highScore){
+    newHighScore = true;
     highScore = score;
     localStorage.setItem("HighScore", highScore);
   }

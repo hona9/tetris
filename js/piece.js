@@ -32,7 +32,7 @@ Piece.prototype.undraw = function(){
       p.moveDown();
       dropStart = Date.now();
     }
-    if(!isGameOver)  animateDrop = requestAnimationFrame(drop);
+    if(!isGameOver && isGameOn)  animateDrop = requestAnimationFrame(drop);
   }
   drop();
 // }
@@ -121,9 +121,8 @@ Piece.prototype.lock = function(){
       if(!this.currentShape[r][c]) continue;
 
       if(this.y + r < 1){
-        alert('Game Over');
-        isGameOn = false;
         isGameOver = true;
+        gameOver();
         break;
       }
     board[this.y + r][this.x + c] = this.color;
@@ -138,13 +137,12 @@ Piece.prototype.lock = function(){
 
 //special combo feature to stop the piece falling
 // function comboFeature(){
-  if(combo == 0){
-    p.y = 0;
-    p.draw();
-    window.cancelAnimationFrame(animateDrop);
-    setTimeout(drop(), 4000);
-    console.log('combo feature running');
-  }
+  // if(combo == 0){
+  //   p.y = 0;
+  //   p.draw();
+  //   window.cancelAnimationFrame(animateDrop);
+  //   setTimeout(drop(), 4000);
+  // }
 // }
 // comboFeature();
 
@@ -157,7 +155,6 @@ Piece.prototype.hardDrop = function(){
 
 //function to draw ghost pieces
 Piece.prototype.ghost = function(){
-  console.log("ghost");
   for(let r = 0; r < ROW; r++){
     for(let c = 0; c < COL; c++){
       if(this.collision(r, c, this.currentShape)){
