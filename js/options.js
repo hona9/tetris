@@ -34,13 +34,17 @@ function closeControlOptions(){
 const showScoreBoard = document.querySelector('.scoreBoard');
 const showScore = document.querySelector('.gameOverscore');
 const showNewHighScore = document.querySelector('#newHighScore');
+
+// let currentHighScore = localStorage.getItem('HighScore');
 //gameover function
 function gameOver(){
   showScore.innerHTML = score;
-  if(newHighScore){
+  if(newHighScore === true){
+    showNewHighScore.classList.remove('inactive');
     showNewHighScore.classList.add('active');
   }else{
     showNewHighScore.classList.remove('active');
+    showNewHighScore.classList.add('inactive');
   }
   showScoreBoard.classList.add('active');
   overlay.classList.add('active');

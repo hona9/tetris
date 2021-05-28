@@ -165,11 +165,14 @@ html{
 
 #newHighScore{
   color: aquamarine;
-  display: none;
 }
 
 #newHighScore.active{
   display: block;
+}
+
+#newHighScore.inactive{
+  display: none;
 }
 
 .gameOverscore{
